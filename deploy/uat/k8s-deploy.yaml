@@ -18,11 +18,6 @@ spec:
       containers:
       - name: $K8S_SERVICE_NAME
         image: $DOCKER_TAG
-        envFrom:
-          - configMapRef:
-              name: $K8S_CONFIGMAP_NAME
-          - secretRef:
-              name: $K8S_SECRET_NAME
         imagePullPolicy: IfNotPresent    
         resources:
           limits:
