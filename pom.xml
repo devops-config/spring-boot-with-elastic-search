@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.za</groupId>
 	<artifactId>spring-boot-with-elastic-search</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>2.0</version>
 	<name>spring-boot-with-elastic-search</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>

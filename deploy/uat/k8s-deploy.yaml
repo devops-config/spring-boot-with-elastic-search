@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: $K8S_SERVICE_NAME
+  namespace: $K8S_NAMESPACE
+spec:
+  selector:
+    matchLabels:
+      app: $K8S_SERVICE_NAME
+  replicas: 1
+  template:
+    metadata:
+      annotations:
+        kubernetes.io/change-cause: "$K8S_CHANGE_CAUSE"
+      labels:
+        app: $K8S_SERVICE_NAME
+    spec:
+      containers:
+      - name: $K8S_SERVICE_NAME
+        image: $DOCKER_TAG
+        envFrom:
+          - configMapRef:
+              name: $K8S_CONFIGMAP_NAME
+          - secretRef:
+              name: $K8S_SECRET_NAME
+        imagePullPolicy: IfNotPresent    
+        resources:
+          limits:
+            memory: $K8S_MAX_RAM_POD
+        ports:
+          - name: $CONTAINER_PORT_NAME
+            containerPort: $K8S_CONTAINER_AND_TARGET_PORT
+        readinessProbe:
+          failureThreshold: 5
+          httpGet:
+            path: /version
+            port: $CONTAINER_PORT_NAME
+          initialDelaySeconds: 30
+          periodSeconds: 15
+          timeoutSeconds: 30
+      restartPolicy: Always
+      imagePullSecrets:
+      - name: docker-reg-oss-net-bd

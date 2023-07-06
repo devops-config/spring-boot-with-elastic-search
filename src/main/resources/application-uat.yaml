@@ -1,0 +1,5 @@
+spring:
+  data:
+    elasticsearch:
+      cluster-nodes: elasticsearch-0.elasticsearch.elasticsearch.svc.cluster.local:9200
+      cluster-name: elasticsearch-v2
