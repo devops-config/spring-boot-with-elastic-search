@@ -3,5 +3,7 @@ spring:
     elasticsearch:
       # cluster-nodes: localhost:9200
       # cluster-name: elasticsearch
-      cluster-nodes: elastic-v2.oss.net.bd
+      # cluster-nodes: elastic-v2.oss.net.bd
+      # cluster-name: elasticsearch-v2
+      cluster-nodes: elasticsearch-0.elasticsearch.elasticsearch.svc.cluster.local:9200
       cluster-name: elasticsearch-v2
