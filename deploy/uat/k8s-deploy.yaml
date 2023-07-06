@@ -34,5 +34,9 @@ spec:
           periodSeconds: 15
           timeoutSeconds: 30
       restartPolicy: Always
+      hostAliases:
+      - ip: "103.48.19.228"
+        hostnames:
+        - "elastic-v2.oss.net.bd"
       imagePullSecrets:
       - name: docker-reg-oss-net-bd
