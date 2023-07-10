@@ -10,4 +10,7 @@ spring:
       # cluster-nodes: 10.244.1.222:9200
       cluster-name: elasticsearch-v2
       #cluster-nodes: elasticsearch-0.elasticsearch:9200
-      cluster-nodes: 10.244.1.190:9200 
+      cluster-nodes: elastic-v2.oss.net.bd
+      properties:
+         user: zamir
+         password: 123456
